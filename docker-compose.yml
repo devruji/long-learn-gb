@@ -6,6 +6,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./mongo/data:/data/db
   growthbook:
     image: "growthbook/growthbook:latest"
     ports:
@@ -16,4 +18,4 @@ services:
     environment:
       - MONGODB_URI=mongodb://root:password@mongo:27017/
     volumes:
-      - ./uploads:/usr/local/src/app/packages/back-end/uploads
+      - ./growthbook/uploads:/usr/local/src/app/packages/back-end/uploads
